@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="/">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="description" content="云宗C2M商城是全球性价比最高的电子商务平台，是全球第一家用户直连制造（Customer To Manufactory）的平台，通过平台建立消费者与品质制造商的桥梁，将消费者的需求直接发送到工厂，按需生产模式既满足了消费者个性化的需求，又短路了复杂的商品流通环节，真正让消费者享受到专属且高品质的商品。目前，商品覆盖高跟鞋、眼镜、饰品、运动鞋、运动服、女士包包等品类，未来会按照消费者需求来增加新的产品类目。" />
+    <meta name="Keywords" content="云宗;云宗商城;云宗平台;云宗电商;C2M商城;工业4.0;定制平台;定制商城;奢侈品定制;定制鞋;定制包;定制眼镜;定制饰品;定制运动服;定制运动鞋" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta content="telephone=no" name="format-detection">
+    <meta content="email=no" name="format-detection">
+    <meta content="no" name="apple-touch-fullscreen" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/app.min.css">
+    <title>云宗，全球首家C2M电子商务平台</title>
+</head>
+
+<body>
+    <header>
+    </header>
+    <div class="by_w" id="by_w">
+        <span class="staticpage none"></span>
+        <span class="isindex none"></span>
+        <!-- 头部 -->
+        <div class="m_pagetop" align="center">
+            <span class="logopic"></span>云宗<span class="m_mine icon-user touri none" touri="/account/mine"></span><span class="m_shopcar icon-cart touri none" id="touri" touri="/cart/list.html"></span>
+        </div>
+        <!-- banner -->
+        <div class="m_wap ofh bcol_fff" align="center">
+            <div class="m_slider" ng-controller="bannerController">
+                <div class="slidermain" style="min-height: 0">
+                    <ul>
+                        <li class="relative"><img class="lb" ng-src="images/zwpic-750-454.png" /></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 商品列表 -->
+        <div class="mb10" ng-controller="productsController">
+            <div class="lazypic w50 ml3 mt10 hands" ng-repeat="product in products">
+                <imageview data-rate="352/418" src="staticImageUrl + product.cover" ng-click="show_product(product.product_id)" style="display: block;width:100%"></imageview>
+                <p style="padding-top:8px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" ng-cloak>{{product.classify_two_name}}</p>
+            </div>
+            <div class="clear_both"></div>
+            <div class="section" style="color:#ABABAB" ng-click="loadMore()">{{page.message}}</div>
+        </div>
+        <div class="s_wrapBg none" ontouchmove="event.preventDefault()"></div>
+        <!-- 侧边栏 -->
+        <div class="slider_list none">
+            <ul class="slider_menu" ng-controller="sidebarConroller">
+                <li data-id="{{jingpin.data_id}}" data-pid="{{jingpin.data_pid}}" data-url="" class="{{jingpin.type}}" ng-repeat="jingpin in jingpin_menu track by $index" ng-click="toggle(jingpin)"><span class="menu_name escp">{{jingpin.name}}</span><span ng-class="{'menu_zk':jingpin.type=='menu_type'}"></span></li>
+                <li data-id="{{menu.data_id}}" data-pid="{{menu.data_pid}}" data-url="" class="{{menu.type}}" ng-repeat="menu in menus track by $index" ng-click="toggle(menu)"><span class="menu_name escp">{{menu.name}}</span><span ng-class="{'menu_zk':menu.type=='menu_type'}"></span></li>
+            </ul>
+        </div>
+        <div class="" id="m_footer">
+            <div class="m_f_bottom" style="border: none">
+                <div style="width:40px;height:40px;float:left;margin-top:-10px;"></div>
+                <span class="col_666 f12">云宗科技&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;丨&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;版权所有</span>
+                <div style="width:40px;height:40px;float:right;margin-top:-10px;" id="pay_wx"></div>
+            </div>
+        </div>
+    </div>
+    <!-- error tip -->
+    <div class="error-msg text-center"></div>
+    <!-- toast tip -->
+    <div class="toast">
+        <span class="loader"></span>
+    </div>
+    <script type="text/javascript">
+    window.ControllerSite = '';
+    window.mdomain = '.yunzong.com';
+    window.version = 'v2133';
+    window.__pageType = 'other'
+    </script>
+    <script type="text/javascript" src="js/lazyload.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <!-- <script type="text/javascript" src="js/bytrack.js"></script> -->
+</body>
+
+</html>

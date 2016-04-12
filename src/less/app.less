@@ -1,0 +1,42 @@
+@import "base.less";
+@import "index.less";
+@import "product.less";
+@import "news.less";
+.toast {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 51px;
+	bottom: 51px;
+	text-align: center;
+	z-index: 1000;
+	padding-top: 50%;
+	display: none;
+	.loader {
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		background-repeat: no-repeat;
+		background-image: url("../images/loader.gif");
+		background-size: 100%;
+	}
+}
+// ----------------------------error   ---------------------------- //
+.error-msg {
+	position: absolute;
+	top: 51px;
+	left: 0;
+	right: 0;
+	opacity: 0.8;
+	z-index: 1000;
+	display: none;
+	&.section-warning {
+		background-color: fade(black, 80%)
+	}
+}
+.lazypic imageview {
+	background-color: white;
+}
+body {
+	visibility: hidden;
+}
