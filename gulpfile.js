@@ -91,11 +91,11 @@ gulp.on('error', function(e) {
 
 gulp.task('clean', function(cb) {
     return gulp.src([
-            path.join(config.dest, 'index.html'),
-            path.join(config.dest, 'images'),
-            path.join(config.dest, 'css'),
-            path.join(config.dest, 'js'),
-            path.join(config.dest, 'fonts')
+            path.join(config.dest + "/mobile", 'index.html'),
+            path.join(config.dest + "/mobile", 'images'),
+            path.join(config.dest + "/mobile", 'css'),
+            path.join(config.dest + "/mobile", 'js'),
+            path.join(config.dest + "/mobile", 'fonts')
         ], {
             read: false
         })
@@ -126,7 +126,7 @@ gulp.task('connect', function() {
 ==============================================================*/
 
 gulp.task('livereload', function() {
-    gulp.src(path.join(config.dest, '*.html'))
+    gulp.src(path.join(config.dest + "/mobile", '*.html'))
         .pipe(connect.reload());
 });
 
@@ -137,7 +137,7 @@ gulp.task('livereload', function() {
 
 gulp.task('images', function() {
     return gulp.src('src/images/**/*')
-        .pipe(gulp.dest(path.join(config.dest, 'images')));
+        .pipe(gulp.dest(path.join(config.dest + "/mobile", 'images')));
 });
 
 
@@ -147,7 +147,7 @@ gulp.task('images', function() {
 
 gulp.task('fonts', function() {
     return gulp.src(config.vendor.fonts)
-        .pipe(gulp.dest(path.join(config.dest, 'fonts')));
+        .pipe(gulp.dest(path.join(config.dest + "/mobile", 'fonts')));
 });
 
 
@@ -159,7 +159,7 @@ gulp.task('html', function() {
     var inject = [];
     gulp.src(['src/html/**/*.html'])
         .pipe(replace('<!-- inject:js -->', inject.join('\n    ')))
-        .pipe(gulp.dest(config.dest));
+        .pipe(gulp.dest(config.dest + "/mobile"));
 });
 
 
@@ -195,7 +195,7 @@ gulp.task('less', function() {
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(gulp.dest(path.join(config.dest, 'css')));
+        .pipe(gulp.dest(path.join(config.dest + "/mobile", 'css')));
 });
 
 
@@ -223,8 +223,8 @@ gulp.task('js', function() {
             suffix: '.min'
         }))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(path.join(config.dest, 'js')));
-    gulp.src('./src/js-static/*.js').pipe(gulp.dest(path.join(config.dest, 'js')));
+        .pipe(gulp.dest(path.join(config.dest + "/mobile", 'js')));
+    gulp.src('./src/js-static/*.js').pipe(gulp.dest(path.join(config.dest + "/mobile", 'js')));
 });
 
 
@@ -234,7 +234,7 @@ gulp.task('js', function() {
 
 gulp.task('watch', function() {
     if (typeof config.server === 'object') {
-        gulp.watch([config.dest + '/**/*'], ['livereload']);
+        gulp.watch([config.dest + "/mobile" + '/**/*'], ['livereload']);
     }
     gulp.watch(['./src/html/**/*'], ['html']);
     gulp.watch(['./src/less/**/*'], ['less']);
